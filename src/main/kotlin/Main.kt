@@ -9,7 +9,7 @@ fun agoToText(goOnline:Int): String {
     val stringLine = when (goOnline) {
         in 0..60 -> "только что"
         in 61..60*60 -> minuts(goOnline)
-        in 60*60+1..24*60*60 -> "x часов назад"
+        in 60*60+1..24*60*60 -> hours(goOnline)
         in 24*60*60+1..48*60*60 -> "сегодня"
         in 48*60*60+1..72*60*60 -> "вчера"
         else -> "давно"
@@ -24,4 +24,9 @@ fun minuts(goOnline: Int): String {
         else -> "jj"
     }
     return minuts
+}
+
+fun hours(goOnline: Int): String {
+    ///
+    return "hh"
 }
