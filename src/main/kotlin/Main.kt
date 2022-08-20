@@ -1,6 +1,6 @@
 fun main() {
     val name = "Вася"
-    val goOnline = 555 //cek
+    val goOnline = 3133 //cek
 
     println(name + " был(а) " + agoToText(goOnline))
 }
@@ -18,15 +18,25 @@ fun agoToText(goOnline:Int): String {
 }
 
 fun minuts(goOnline: Int): String {
-    val minuts = when (goOnline) {
-        in 61..120 -> "gg"//21*60+1..1320,
-
-        else -> "jj"
+    val goOnlineMinut = goOnline / 60
+    var minut = "$goOnlineMinut минут назад"
+    if ((goOnlineMinut % 10) == 1) {
+        minut = "$goOnlineMinut минуту назад"
     }
-    return minuts
+    if (((goOnlineMinut % 10) == 2)||((goOnlineMinut % 10) == 3)||((goOnlineMinut % 10) == 4)) {
+        minut = "$goOnlineMinut минуты назад"
+    }
+    return minut
 }
 
 fun hours(goOnline: Int): String {
-    ///
-    return "hh"
+    val goOnlineHour = goOnline / 3600
+    var hour = "$goOnlineHour часов назад"
+    if ((goOnlineHour % 10) == 1) {
+        hour = "$goOnlineHour час назад"
+    }
+    if (((goOnlineHour % 10) == 2)||((goOnlineHour % 10) == 3)||((goOnlineHour % 10) == 4)) {
+        hour = "$goOnlineHour часа назад"
+    }
+    return hour
 }
